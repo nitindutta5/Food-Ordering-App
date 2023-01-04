@@ -1,0 +1,15 @@
+.wrap{
+    display: flex;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+}
+
+.menu li{
+    margin-right: 10px;
+    list-style: none;
+}
