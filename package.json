@@ -1,0 +1,29 @@
+{
+  "name": "nras",
+  "version": "1.0.0",
+  "description": "Namaste React",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitindutta5/NR.git"
+  },
+  "author": "Nitin Dutta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitindutta5/NR/issues"
+  },
+  "homepage": "https://github.com/nitindutta5/NR#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement(
     "h1",
     {
@@ -18,6 +21,7 @@ const heading = React.createElement(
     "div",
     {
       id: "container",
+      dev:"nitin"
     },
     [heading, heading2]
   );
