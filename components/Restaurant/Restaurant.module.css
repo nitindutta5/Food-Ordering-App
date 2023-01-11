@@ -1,0 +1,47 @@
+.restaurantCard {
+  padding: 10px;
+  width: 100%;
+  max-width: 225px;
+  margin-bottom: 4%;
+  border: 0.5px solid grey;
+  box-shadow: 2px 2px 4px grey;
+}
+.restaurantCard .imgholder {
+  height: 200px;
+  overflow: hidden;
+}
+.restaurantCard img {
+  width: 100%;
+  height: 178px;
+  object-fit: cover;
+}
+.restaurantCard .content{
+margin: 10px;
+}
+
+.restaurantCard .title {
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-style: italic;
+  font-size: 15px;
+}
+.rating {
+    color: #fc8019;
+    font-size: 12px;
+}
+.price {
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.small {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 200;
+}
+.restaurantHolder {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
