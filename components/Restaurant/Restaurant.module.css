@@ -45,3 +45,10 @@ margin: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.textField{
+  margin: 0px 0px 20px 0px;
+  padding: 10px;
+  max-width: 300px;
+  width: 100%;
+}
