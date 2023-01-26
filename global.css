@@ -10,3 +10,25 @@
     margin: 0px auto
 }
 
+.btn-noborder{
+    border: 0;
+    color: white;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn{
+    border: 0;
+    color: white;
+    background-color: #fc8019;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.img-res{
+    max-width: 100%;
+    height: auto;
+}
+

@@ -1,0 +1,1 @@
+export const CLOUDINARY_URL = "https://res.cloudinary.com/swiggy/image/upload/"

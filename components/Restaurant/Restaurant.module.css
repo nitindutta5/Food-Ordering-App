@@ -6,6 +6,17 @@
   border: 0.5px solid grey;
   box-shadow: 2px 2px 4px grey;
 }
+
+.shimmer {
+  background-color: lightgray;
+  width: 100%;
+  width: 225px;
+  height: 250px;
+  margin-bottom: 4%;
+  border: 0.5px solid grey;
+  box-shadow: 2px 2px 4px grey;
+}
+
 .restaurantCard .imgholder {
   height: 200px;
   overflow: hidden;
@@ -15,8 +26,8 @@
   height: 178px;
   object-fit: cover;
 }
-.restaurantCard .content{
-margin: 10px;
+.restaurantCard .content {
+  margin: 10px;
 }
 
 .restaurantCard .title {
@@ -27,12 +38,12 @@ margin: 10px;
   font-size: 15px;
 }
 .rating {
-    color: #fc8019;
-    font-size: 12px;
+  color: #fc8019;
+  font-size: 12px;
 }
 .price {
-    font-weight: 800;
-    font-size: 12px;
+  font-weight: 800;
+  font-size: 12px;
 }
 
 .small {
@@ -44,11 +55,54 @@ margin: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 10px 0px;
 }
 
-.textField{
+.textField {
   margin: 0px 0px 20px 0px;
   padding: 10px;
   max-width: 300px;
   width: 100%;
+}
+
+.menu {
+  margin: 20px 0;
+}
+.menu ul {
+  padding-left: 0;
+  height: 250px;
+  overflow-y: scroll;
+  max-width: 450px;
+}
+
+.menu li {
+  list-style: none;
+  font-size: 14px;
+}
+
+.restaurantDetail {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.restaurantDetail h2 {
+  margin-bottom: 10px;
+}
+
+.restaurantDetail img {
+  max-width: 300px;
+  filter: drop-shadow(3px 5px 6px #fc8019);
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info .right {
+  margin-left: 20px;
+}
+
+.right span {
+  font-weight: bold;
 }

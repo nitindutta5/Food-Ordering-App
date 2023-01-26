@@ -1,4 +1,6 @@
 import styles from "./Header.module.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const Menu = [
@@ -18,6 +20,7 @@ const Header = () => {
       id:"3"
     },
   ];
+  const [login, setLogin] = useState(false);
   return (
     <div className={styles.header}>
     <div className={styles.wrap + ` container`}>
@@ -28,11 +31,12 @@ const Header = () => {
       />
       <ul className={styles.menu}>
         {Menu.map((item) => (
-          <a key={item.id} href={item.url}>
+          <Link key={item.id} to={item.url}>
           <li>{item.name}</li>
-          </a>
+          </Link>
         ))}
       </ul>
+      <button className="btn-noborder" onClick={()=>setLogin(!login)}>{login ? "Logout" : "Login"}</button>
     </div>
     </div>
   );
