@@ -1,39 +1,66 @@
-import { restaurants } from "../../data";
 import RestaurantCard from "./RestaurantCard";
 import styles from "./Restaurant.module.css";
 import { useState } from "react";
+import Shimmer from "../Shimmer/Shimmer";
+import { useEffect } from "react";
 
 const RestaurantList = () => {
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [filter, setFilter] = useState("");
-  const [filteredRestaurants, setFilteredRestaurants] = useState([
-    ...restaurants,
-  ]);
-  const [loading, setLoading] = useState(false);
-  const handleFilter = (e) => {
-    setLoading(true);
-    let val = e.target.value;
-    setFilter(val);
-    let filteredData = restaurants.filter((item) =>
-      item.data.name.includes(val)
+  const [msg, setMsg] = useState("");
+
+  async function getRestaurants() {
+    await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.677106134761935&lng=77.48572502285242&page_type=DESKTOP_WEB_LISTING"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setRestaurants(data?.data?.cards?.[2]?.data?.data?.cards);
+        setFilteredRestaurants(data?.data?.cards?.[2]?.data?.data?.cards);
+      });
+  }
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  useEffect(() => {
+    if (filter.length === 0) {
+      setMsg("");
+      setFilteredRestaurants(restaurants);
+    } else {
+      handleFilter(filter);
+    }
+  }, [filter]);
+
+  const handleFilter = (val) => {
+    let filteredData = restaurants?.filter((item) =>
+      item.data.name.toLowerCase().includes(val.toLowerCase())
     );
+    if (filteredData.length === 0) {
+      setMsg("No records found.");
+    }
     setFilteredRestaurants([...filteredData]);
-    setLoading(false);
   };
   return (
     <div className="container">
       <input
         type="text"
         value={filter}
-        onChange={handleFilter}
+        onChange={(e) => setFilter(e.target.value)}
         placeholder="Search Restaurant"
         className={styles.textField}
       />
       <div className={styles.restaurantHolder}>
-        {loading
-          ? "Loading..."
-          : filteredRestaurants.map((item) => (
-              <RestaurantCard key={item.data.uuid} {...item.data} />
-            ))}
+        {msg != "" && <h4>{msg}</h4>}
+        {restaurants.length === 0 ? (
+          <Shimmer size={5} />
+        ) : (
+          filteredRestaurants?.map((item) => (
+            <RestaurantCard key={item.data.uuid} {...item.data} />
+          ))
+        )}
       </div>
     </div>
   );
