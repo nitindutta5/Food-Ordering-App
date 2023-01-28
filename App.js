@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./global.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Header from "./src/utils/components/Header/Header";
-import Footer from "./src/utils/components/Footer/Footer";
-import RestaurantDetail from "./src/utils/components/Restaurant/RestaurantDetail";
+import Header from "./src/components/Header/Header";
+import Footer from "./src/components/Footer/Footer";
+import RestaurantDetail from "./src/components/Restaurant/RestaurantDetail";
 import { lazy } from "react";
 import { Suspense } from "react/cjs/react.production.min";
-import useOnline from "./src/utils/hooks/useOnline";
-import Offline from "./src/utils/components/Common/Offline";
-import RestaurantList from "./src/utils/components/Restaurant/RestaurantList";
+import useOnline from "./src/hooks/useOnline";
+import Offline from "./src/components/Common/Offline";
+import RestaurantList from "./src/components/Restaurant/RestaurantList";
 
-const About = lazy(()=> import("./src/utils/components/About/About"));
+const About = lazy(()=> import("./src/components/About/About"));
 
 const Container = () => {
   const isOnline =  useOnline();

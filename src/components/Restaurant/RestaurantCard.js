@@ -1,6 +1,6 @@
 import styles from './Restaurant.module.css'
 import { Link } from 'react-router-dom'
-import { CLOUDINARY_URL } from '../../constants'
+import { CLOUDINARY_URL } from '../../utils/constants'
 
 const RestaurantCard = (props) => {
     return(
