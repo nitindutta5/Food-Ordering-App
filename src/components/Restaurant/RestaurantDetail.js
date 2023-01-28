@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Restaurant.module.css";
-import { CLOUDINARY_URL } from "../../constants";
+import { CLOUDINARY_URL } from "../../utils/constants";
 import Shimmer from "../Common/Shimmer";
 
 const RestaurantDetail = () => {
