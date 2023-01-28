@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import styles from "./Restaurant.module.css";
 import { useState } from "react";
-import Shimmer from "../Shimmer/Shimmer";
+import Shimmer from "../Common/Shimmer";
 import { useEffect } from "react";
 
 const RestaurantList = () => {

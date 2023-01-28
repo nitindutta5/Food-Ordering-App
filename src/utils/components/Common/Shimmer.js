@@ -5,7 +5,7 @@ const Shimmer = ({size}) => {
   return (
     <>
       {arr.map((id) => (
-        <div key={`shimmer${id}`} className={styles.shimmer}></div>
+        <div key={`shimmer${id + Math.random()}`} className={styles.shimmer}></div>
       ))}
       <br/>
       Loading...
