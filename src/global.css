@@ -1,6 +1,15 @@
+
 *{
     margin: 0px;
     font-family: 'Poppins', sans-serif;
+}
+
+.dark{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
 }
 
 

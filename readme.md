@@ -1,4 +1,6 @@
-# NR - NOTES
+# Food Ordering App - React js & Redux Toolkit
+
+Note: Using swiggy's public api's so for your local env use some cors extension.
 
 ## Difference between Monolith and Microservice acrhitecture?
 A: https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith

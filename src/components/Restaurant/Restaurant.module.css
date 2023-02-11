@@ -63,6 +63,7 @@
   padding: 10px;
   max-width: 300px;
   width: 100%;
+  border:1px solid gray;
 }
 
 .menu {
@@ -70,9 +71,8 @@
 }
 .menu ul {
   padding-left: 0;
-  height: 250px;
+  height: 400px;
   overflow-y: scroll;
-  max-width: 450px;
 }
 
 .menu li {
