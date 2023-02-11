@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./global.css";
 import {RouterProvider } from "react-router-dom";
 import { lazy } from "react";
-import { ThemeContextProvider } from "./utils/ThemeContext";
-import Router from "./router";
+import { ThemeContextProvider } from "./src/utils/ThemeContext";
+import Router from "./src/router";
 
-const About = lazy(() => import("./components/About/About"));
+const About = lazy(() => import("./src/components/About/About"));
 
 const Container = () => {
   return (

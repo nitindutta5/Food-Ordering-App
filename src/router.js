@@ -1,4 +1,4 @@
-import Main from "./hooks/Main";
+import Main from "./Main";
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import About from "./components/About/About";
