@@ -25,7 +25,7 @@ const RestaurantDetail = () => {
   const history = useNavigate();
   return (
     <div className="container">
-      <button className="btn" onClick={() => history(-1)}>
+      <button className="btn p-1" onClick={() => history(-1)}>
         {" "}
         {`<`} Back
       </button>
@@ -34,17 +34,18 @@ const RestaurantDetail = () => {
           <Shimmer size={1} />
         ) : (
           <>
-            <h2>{data?.name}</h2>
+            <h1 className="text-xl mb-2">{data?.name}</h1>
             <div className={styles.info}>
+              <div>
               <img
                 className="img-res"
                 src={CLOUDINARY_URL + `${data?.cloudinaryImageId}`}
               />
-              <div className={styles.right}>
+              <div className="pt-3">
                 <p>
                   Address :{" "}
                   <span>
-                    {data?.area}, {data?.locality}
+                    {data?.locality}
                   </span>
                 </p>
                 <p>
@@ -55,18 +56,26 @@ const RestaurantDetail = () => {
                 </p>
                 <p></p>
               </div>
-            </div>
+              </div>
+              <div className={styles.right}>
             <div className={styles.menu}>
-              <h3>Menu</h3>
+              <p className="text-xl">Menu</p>
               <ul>
                 {menu.length ===0 && <p>Menu not available</p> }
                   {menu?.map((item) => (
                   <li key={item.id}>
-                    {item.name} - Rs.<b>{Math.round(item.price / 100)}</b>
+                    <div  className="p-2 pl-0 border-1 d-flex justify-content-between algin-items-center">
+                    <p className="m-0 p-0">{item.name} - Rs.<b>{Math.round(item.price / 100)}</b></p>
+                    <button className="btn p-2">Add</button>
+                    </div>
+
                   </li>
                 ))}
               </ul>
             </div>
+            </div>
+            </div>
+
           </>
         )}
       </div>
