@@ -1,16 +1,14 @@
 import RestaurantCard from "./RestaurantCard";
 import styles from "./Restaurant.module.css";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Shimmer from "../Common/Shimmer";
 import { useEffect } from "react";
-import { ThemeContext } from "../../utils/ThemeContext";
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [filter, setFilter] = useState("");
   const [msg, setMsg] = useState("");
-  // const {darkMode} = useContext(ThemeContext);
 
   async function getRestaurants() {
     await fetch(

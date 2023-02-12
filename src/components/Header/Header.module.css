@@ -12,6 +12,7 @@
     display: flex;
     width: 100%;
     justify-content: start;
+    margin-bottom: 0;
 }
 
 .menu li{

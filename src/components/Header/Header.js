@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const Menu = [
@@ -21,6 +22,7 @@ const Header = () => {
     },
   ];
   const [login, setLogin] = useState(false);
+  const cartCount = useSelector((state) => state?.cart?.length);
   return (
     <div className={styles.header}>
     <div className={styles.wrap + ` container`}>
@@ -37,6 +39,7 @@ const Header = () => {
         ))}
       </ul>
       <button className="btn-noborder" onClick={()=>setLogin(!login)}>{login ? "Logout" : "Login"}</button>
+      <button className="btn-noborder">Cart {cartCount}</button>
     </div>
     </div>
   );

@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+p{
+    margin-bottom: 0 !important;
+}
+
 .dark{
     background-color: black;
 }
@@ -28,7 +32,7 @@
     cursor: pointer;
 }
 
-.btn{
+.btn-orange{
     border: 0;
     color: white;
     background-color: #fc8019;
