@@ -112,7 +112,7 @@ A: No it is not mandetory. You can use react.createElement to create an element.
 A: No it is not mandetory. You can also use vanilla js in react as well. It's a library. It gives you that flexibility.
 
 ## How can I write comments in JSX?
-A:  Example-    {/* <h1>Food Villa</h1>  */}
+A:  Example - `{/* <h1>Food Villa</h1>  */}`
 
 ## What is <React.Fragment><React.Fragment> and <></>?
 A: Fragment lets to wrap group of children without adding an extra node in the DOM. And <></> is the shorthand for <React.Fragment></React.Fragment>. As of now only key attribute can only be passed to a fragment.
