@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import styles from "./Restaurant.module.css";
 import { CLOUDINARY_URL } from "../../utils/constants";
 import Shimmer from "../Common/Shimmer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/slices/cart/cartSlice";
 
 const RestaurantDetail = () => {
   const params = useParams();
   const { id } = params;
   const [data, setData] = useState({});
   const [menu, setMenu] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getData();
@@ -25,7 +28,7 @@ const RestaurantDetail = () => {
   const history = useNavigate();
   return (
     <div className="container">
-      <button className="btn p-1" onClick={() => history(-1)}>
+      <button className="btn-orange p-1" onClick={() => history(-1)}>
         {" "}
         {`<`} Back
       </button>
@@ -37,45 +40,48 @@ const RestaurantDetail = () => {
             <h1 className="text-xl mb-2">{data?.name}</h1>
             <div className={styles.info}>
               <div>
-              <img
-                className="img-res"
-                src={CLOUDINARY_URL + `${data?.cloudinaryImageId}`}
-              />
-              <div className="pt-3">
-                <p>
-                  Address :{" "}
-                  <span>
-                    {data?.locality}
-                  </span>
-                </p>
-                <p>
-                  Cost: <span>{data?.costForTwoMsg}</span>
-                </p>
-                <p>
-                  Cuisine: <span>{data?.cuisines?.join(", ")}</span>
-                </p>
-                <p></p>
-              </div>
+                <img
+                  className="img-res"
+                  src={CLOUDINARY_URL + `${data?.cloudinaryImageId}`}
+                />
+                <div className="pt-3">
+                  <p>
+                    Address : <span>{data?.locality}</span>
+                  </p>
+                  <p>
+                    Cost: <span>{data?.costForTwoMsg}</span>
+                  </p>
+                  <p>
+                    Cuisine: <span>{data?.cuisines?.join(", ")}</span>
+                  </p>
+                  <p></p>
+                </div>
               </div>
               <div className={styles.right}>
-            <div className={styles.menu}>
-              <p className="text-xl">Menu</p>
-              <ul>
-                {menu.length ===0 && <p>Menu not available</p> }
-                  {menu?.map((item) => (
-                  <li key={item.id}>
-                    <div  className="p-2 pl-0 border-1 d-flex justify-content-between algin-items-center">
-                    <p className="m-0 p-0">{item.name} - Rs.<b>{Math.round(item.price / 100)}</b></p>
-                    <button className="btn p-2">Add</button>
-                    </div>
-
-                  </li>
-                ))}
-              </ul>
+                <div className={styles.menu}>
+                  <ul>
+                    {menu.length === 0 && <p>Menu not available</p>}
+                    {menu?.map((item) => (
+                      <li key={item.id}>
+                        <div className="align-items-center d-flex justify-content-between p-2 pl-0">
+                          <p className="m-0 p-0">
+                            {item.name} - Rs.
+                            <b>{Math.round(item.price / 100)}</b><br/>
+                            {item?.description}
+                          </p>
+                          <button
+                            className="btn-orange p-2"
+                            onClick={() => dispatch(addToCart(item))}
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
-
           </>
         )}
       </div>

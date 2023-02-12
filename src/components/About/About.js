@@ -8,7 +8,6 @@ class About extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Hey I am the about page</h1>
           <Profile name="Nitin"/>
       </div>
     );

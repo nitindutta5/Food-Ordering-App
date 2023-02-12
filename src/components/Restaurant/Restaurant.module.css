@@ -90,7 +90,8 @@
 }
 
 .restaurantDetail img {
-  max-width: 300px;
+  width: 100%;
+  max-width: 400px;
   filter: drop-shadow(3px 5px 6px #fc8019);
 }
 
@@ -98,9 +99,10 @@
   display: flex;
   justify-content: flex-start;
 }
-
-.info .right {
+.right{
   margin-left: 20px;
+  max-width: auto;
+  width: 100%;
 }
 
 .right span {
