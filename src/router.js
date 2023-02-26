@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import About from "./components/About/About";
 import RestaurantList from "./components/Restaurant/RestaurantList"
 import RestaurantDetail from "./components/Restaurant/RestaurantDetail"
+import Cart from "./components/Cart/Cart";
 
 const Router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const Router = createBrowserRouter([
         {
           path: "/restaurant/:id",
           element: <RestaurantDetail />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
         },
       ],
     },

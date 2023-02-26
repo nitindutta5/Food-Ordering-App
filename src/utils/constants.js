@@ -1,1 +1,2 @@
 export const CLOUDINARY_URL = "https://res.cloudinary.com/swiggy/image/upload/"
+export const RESTAURANT_DETAIL_URL = "https://www.swiggy.com/dapi/menu/v4/full?lat=28.677106134761935&lng=77.48572502285242"

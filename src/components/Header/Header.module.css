@@ -1,32 +1,32 @@
-.wrap{
-    display: flex;
-    align-items: center;
-    padding: 20px;
+.wrap {
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
-.header{
-    background-color: #fc8019;
-    margin-bottom: 2%;
-}
-
-.menu{
-    display: flex;
-    width: 100%;
-    justify-content: start;
-    margin-bottom: 0;
+.header {
+  background-color: #fc8019;
+  margin-bottom: 2%;
 }
 
-.menu li{
-    margin-right: 10px;
-    list-style: none;
-    color: white;
+.menu {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  margin-bottom: 0;
+}
+
+.menu li {
+  margin-right: 10px;
+  list-style: none;
+  color: white;
 }
 .menu a {
-    cursor: pointer;
-    text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.logo{
-    width: 100%;
-    max-width: 80px;
-    height: auto;
+.logo {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
 }
