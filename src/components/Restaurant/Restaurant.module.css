@@ -108,3 +108,9 @@
 .right span {
   font-weight: bold;
 }
+
+.smallImage{
+  max-width: 150px !important;
+  height: auto;
+  width: 100%;
+}

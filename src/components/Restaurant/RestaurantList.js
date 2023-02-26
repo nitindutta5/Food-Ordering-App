@@ -18,7 +18,7 @@ const RestaurantList = () => {
       .then((data) => {
         setRestaurants(data?.data?.cards?.[2]?.data?.data?.cards);
         setFilteredRestaurants(data?.data?.cards?.[2]?.data?.data?.cards);
-      });
+      }).catch((e) => {new Error("Something went wrong",e);console.log("ERROR",e); })
   }
 
   useEffect(() => {

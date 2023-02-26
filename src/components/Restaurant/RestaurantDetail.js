@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Restaurant.module.css";
-import { CLOUDINARY_URL } from "../../utils/constants";
+import { CLOUDINARY_URL, RESTAURANT_DETAIL_URL } from "../../utils/constants";
 import Shimmer from "../Common/Shimmer";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/slices/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../store/slices/cart/cartSlice";
 
 const RestaurantDetail = () => {
   const params = useParams();
@@ -12,20 +12,27 @@ const RestaurantDetail = () => {
   const [data, setData] = useState({});
   const [menu, setMenu] = useState([]);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const cart = useSelector((state) => state?.cart);
 
   const getData = async () => {
     const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/v4/full?lat=28.677106134761935&lng=77.48572502285242&menuId=${id}`
+      `${RESTAURANT_DETAIL_URL}&menuId=${id}`
     );
     const res = await data.json();
     setData(res?.data);
     setMenu([...Object.values(res?.data?.menu?.items)]);
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const history = useNavigate();
+
+  const clearCart = (item) => {
+    const index = cart?.findIndex( i => i.id === item.id);
+    dispatch(removeFromCart(index))
+  }
   return (
     <div className="container">
       <button className="btn-orange p-1" onClick={() => history(-1)}>
@@ -63,18 +70,35 @@ const RestaurantDetail = () => {
                     {menu.length === 0 && <p>Menu not available</p>}
                     {menu?.map((item) => (
                       <li key={item.id}>
-                        <div className="align-items-center d-flex justify-content-between p-2 pl-0">
-                          <p className="m-0 p-0">
+                        <div className="align-items-center d-flex justify-content-start p-2 pl-0">
+                          {item?.cloudinaryImageId && (
+                            <img
+                              src={`${CLOUDINARY_URL}${item?.cloudinaryImageId}`}
+                              alt="rest"
+                              className={styles.smallImage}
+                            />
+                          )}
+                          <p className="mx-3 p-0">
                             {item.name} - Rs.
-                            <b>{Math.round(item.price / 100)}</b><br/>
+                            <b>{Math.round(item.price / 100)}</b>
+                            <br />
                             {item?.description}
                           </p>
                           <button
-                            className="btn-orange p-2"
+                            className="btn-orange p-2 ms-auto"
                             onClick={() => dispatch(addToCart(item))}
                           >
                             Add
                           </button>
+                          {
+                            cart?.some(i => i.id === item.id) && 
+                            <button
+                            className="btn-orange p-2 ms-2"
+                            onClick={() => clearCart(item)}
+                          >
+                            Remove
+                          </button>
+                          }
                         </div>
                       </li>
                     ))}

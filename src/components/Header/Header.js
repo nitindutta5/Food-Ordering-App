@@ -1,9 +1,10 @@
 import styles from "./Header.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Header = () => {
+  const navigate = useNavigate();
   const Menu = [
     {
       name: "Home",
@@ -39,7 +40,7 @@ const Header = () => {
         ))}
       </ul>
       <button className="btn-noborder" onClick={()=>setLogin(!login)}>{login ? "Logout" : "Login"}</button>
-      <button className="btn-noborder">Cart {cartCount}</button>
+      <button className="btn-noborder cartbtn" onClick={()=> navigate('/cart')}>Cart {cartCount}</button>
     </div>
     </div>
   );
