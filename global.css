@@ -56,3 +56,12 @@ p{
     justify-content: center;
     min-height: 100vh;
 }
+
+.cartbtn{
+    max-width: fit-content;
+    width: 100%;
+    background-color: white;
+    color: #fc8019;
+    padding:10px;
+    margin-left: 5px;
+}
