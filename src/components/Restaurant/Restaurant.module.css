@@ -7,14 +7,20 @@
   box-shadow: 2px 2px 4px grey;
 }
 
+@keyframes move {
+  from {left: 0px; background-color: lightgray;}
+  to {left: 200px; background-color: rgba(203, 200, 200, 0.987);}
+}
+
 .shimmer {
   background-color: lightgray;
   width: 100%;
   width: 225px;
   height: 250px;
   margin-bottom: 4%;
-  border: 0.5px solid grey;
-  box-shadow: 2px 2px 4px grey;
+  /* border: 0.5px solid grey; */
+  box-shadow: 1px 1px 2px grey;
+  animation: move 1s infinite linear;
 }
 
 .restaurantCard .imgholder {
@@ -113,4 +119,5 @@
   max-width: 150px !important;
   height: auto;
   width: 100%;
+  background-color: lightgray;
 }
