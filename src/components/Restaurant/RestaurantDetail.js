@@ -15,9 +15,7 @@ const RestaurantDetail = () => {
   const cart = useSelector((state) => state?.cart);
 
   const getData = async () => {
-    const data = await fetch(
-      `${RESTAURANT_DETAIL_URL}&menuId=${id}`
-    );
+    const data = await fetch(`${RESTAURANT_DETAIL_URL}&menuId=${id}`);
     const res = await data.json();
     setData(res?.data);
     setMenu([...Object.values(res?.data?.menu?.items)]);
@@ -30,9 +28,8 @@ const RestaurantDetail = () => {
   const history = useNavigate();
 
   const clearCart = (item) => {
-    const index = cart?.findIndex( i => i.id === item.id);
-    dispatch(removeFromCart(index))
-  }
+    dispatch(removeFromCart(item));
+  };
   return (
     <div className="container">
       <button className="btn-orange p-1" onClick={() => history(-1)}>
@@ -84,21 +81,22 @@ const RestaurantDetail = () => {
                             <br />
                             {item?.description}
                           </p>
+
+                          {cart?.some((i) => i.id === item.id) && (
+                            <button
+                              className="btn-orange p-2 ms-auto me-2"
+                              onClick={() => clearCart(item)}
+                            >
+                              Remove
+                            </button>
+                          )}
+                          {cart?.find((i) => i.id === item.id)?.qty}
                           <button
-                            className="btn-orange p-2 ms-auto"
+                            className="btn-orange p-2 ms-2"
                             onClick={() => dispatch(addToCart(item))}
                           >
                             Add
                           </button>
-                          {
-                            cart?.some(i => i.id === item.id) && 
-                            <button
-                            className="btn-orange p-2 ms-2"
-                            onClick={() => clearCart(item)}
-                          >
-                            Remove
-                          </button>
-                          }
                         </div>
                       </li>
                     ))}
